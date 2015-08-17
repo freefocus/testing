@@ -11,7 +11,8 @@ dependencies:
 
 test:
   override:
-    - ./gradlew build
+    - ./gradlew assembleRelease
+    - cp -r testing/build/outputs $CIRCLE_ARTIFACTS
 
 notify:
   webhooks:
