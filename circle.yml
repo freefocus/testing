@@ -11,8 +11,17 @@ dependencies:
 
 test:
   override:
+    # start the emulator
+    - emulator -avd circleci-android22 -no-audio -no-window:
+        background: true
+        parallel: true
+    # wait for it to have booted
+    - circle-android wait-for-boot
+    # build the apk
     - ./gradlew assembleRelease
+    # 
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    # 
 
 notify:
   webhooks:
