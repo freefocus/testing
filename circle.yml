@@ -22,7 +22,7 @@ test:
     # 
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
     # 
-    - adb install -r app/build/outputs/app-release.apk
+    - adb install -r app/build/outputs/apk/app-release.apk
 
 notify:
   webhooks:
